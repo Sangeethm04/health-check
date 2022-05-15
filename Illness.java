@@ -32,7 +32,7 @@ public class Illness {
     public String[] getCauses() {
         return causes;
     }
-    
+
     public static void main(String[] args) {
 
     }

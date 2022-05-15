@@ -88,7 +88,7 @@ public class Diagnose {
                             System.out.println(illness.getTreatment());
                             System.out.println();
                             System.out.println("Symptoms of " + illness.getName() + ": ");
-                            for(String symptomName: illness.getSymptoms()) {
+                            for (String symptomName: illness.getSymptoms()) {
                                 System.out.println(symptomName);
                             }
                         }

@@ -72,8 +72,15 @@ public class Diagnose {
         illnesses.add(soreThroat);
         illnesses.add(fever);
 
+        for (int i = 0; i < illnesses.size(); i++) {
+            if (i == 0) {
+                System.out.print("We diagnose: ");
+            }
+            System.out.print(illnesses.get(i).getName() + ", ");
+        }
+        System.out.println();
         try (Scanner scan = new Scanner(System.in)) {
-            System.out.println("Enter your symptoms: ");
+            System.out.print("Enter your symptoms: ");
             String symptoms = scan.nextLine();
             String[] symptomsArray = symptoms.split(",");
             // search through symptoms in illnesses and print out the illnesses that match
@@ -84,7 +91,7 @@ public class Diagnose {
                             System.out.println("You May Have " + illness.getName());
                             System.out.println(illness.getDescription());
                             System.out.println();
-                            System.out.println();
+                            System.out.println("Treatments: ");
                             System.out.println(illness.getTreatment());
                             System.out.println();
                             System.out.println("Symptoms of " + illness.getName() + ": ");

@@ -33,14 +33,14 @@ public class Diagnose {
         }, new String[] {
             "Causes of Stoke include a blocked artery (ischemic stroke) or leaking or bursting of a blood vessel (hemorrhagic stroke)",
         });
-        Illness diabetes = new Illness("Diabetes", "Diabetes is a condition in which the body's sugar levels are too high. Symptoms include high blood sugar, thirst, and fatigue. Treatment includes medication to control blood sugar levels and insulin. The treatment is often done with insulin, but it can also be done with medication called insulin-dependent diabetes mellitus (IDDM).", "Insulin\nInsulin-dependent diabetes mellitus (IDDM)", new String[] {
+        Illness diabetes = new Illness("Diabetes", "Diabetes is a condition in which the body's sugar levels are too high. Symptoms include high blood sugar, thirst, and fatigue. Treatment includes medication to control blood sugar levels and insulin. The treatment is often done with insulin, but it can also be done with medication called insulin-dependent diabetes mellitus (IDDM).", "Beta-blockers are one of the most widely prescribed class of drugs to treat hypertension (high blood pressure). They are a mainstay treatment for congestive heart failure. These relax blood vessels and increase the supply of blood and oxygen to the heart. They also reduce the heart's workload.", new String[] {
             "high blood sugar",
             "thirst",
             "fatigue",
         }, new String[] {
             "Weight. The more fatty tissue you have, the more resistant your cells become to insulin. \nInactivity. The less active you are, the greater your risk. \nFamily history",
         });
-        Illness heartDisease = new Illness("Heart Disease", "Heart disease is a condition in which the heart muscle is damaged. Symptoms include chest pain, shortness of breath, dizziness, and fatigue. Treatment includes medication to control blood pressure and blood sugar levels. The treatment is often done with insulin, but it can also be done with medication called insulin-dependent diabetes mellitus (IDDM).", "Insulin\nInsulin-dependent diabetes mellitus (IDDM)", new String[] {
+        Illness heartDisease = new Illness("Heart Disease", "Heart disease is a condition in which the heart muscle is damaged. Symptoms include chest pain, shortness of breath, dizziness, and fatigue. Treatment includes medication to control blood pressure and blood sugar levels. The treatment is often done with insulin, but it can also be done with medication called insulin-dependent diabetes mellitus (IDDM).", "low-fat and low-sodium diet, getting at least 30 minutes of moderate exercise on most days of the week, quitting smoking, and limiting alcohol intake", new String[] {
             "chest pain",
             "shortness of breath",
             "dizziness",
@@ -48,10 +48,6 @@ public class Diagnose {
         }, new String[] {
             "Weight. The more fatty tissue you have, the more resistant your cells become to insulin. \nInactivity. The less active you are, the greater your risk. \nFamily history",
         });
-
-
-
-
 
         ArrayList < Illness > illnesses = new ArrayList < Illness > ();
         illnesses.add(covid);
@@ -67,6 +63,7 @@ public class Diagnose {
             System.out.print(illnesses.get(i).getName() + ", ");
         }
         System.out.println();
+        //ask user for input
         try (Scanner scan = new Scanner(System.in)) {
             System.out.print("Enter your symptoms: ");
             String symptoms = scan.nextLine();

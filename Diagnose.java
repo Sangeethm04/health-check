@@ -14,7 +14,7 @@ public class Diagnose {
         }, new String[] {
             "Close contact (within 6 feet, or 2 meters) with someone who has COVID-19.",
         });
-        Illness lungCancer = new Illness("Lung Cancer", "Two major types of lung cancer are non-small cell lung cancer and small cell lung cancer. Causes of lung cancer include smoking, secondhand smoke, exposure to certain toxins, and family history. Symptoms include cough (often with blood), chest pain, wheezing, and weight loss. These symptoms often don't appear until the cancer is advanced.Treatments vary but may include surgery, chemotherapy, radiation therapy, targeted drug therapy, and immunotherapy.", "Surgery\nchemotherapy\n radiation therapy\ntargeted drug therapy\nimmunotherapy", new String[] {
+        Illness lungCancer = new Illness("Lung Cancer", "Two major types of lung cancer are non-small cell lung cancer and small cell lung cancer. Causes of lung cancer include smoking, secondhand smoke, exposure to certain toxins, and family history. Symptoms include cough (often with blood), chest pain, wheezing, and weight loss. These symptoms often don't appear until the cancer is advanced.Treatments vary but may include surgery, chemotherapy, radiation therapy, targeted drug therapy, and immunotherapy.", "Surgery\nchemotherapy\nradiation therapy\ntargeted drug therapy\nimmunotherapy", new String[] {
             "cough (often with blood)",
             "chest pain",
             "wheezing",
@@ -40,13 +40,40 @@ public class Diagnose {
         }, new String[] {
             "Weight. The more fatty tissue you have, the more resistant your cells become to insulin. \nInactivity. The less active you are, the greater your risk. \nFamily history",
         });
-        Illness heartDisease = new Illness("Heart Disease", "Heart disease is a condition in which the heart muscle is damaged. Symptoms include chest pain, shortness of breath, dizziness, and fatigue. Treatment includes medication to control blood pressure and blood sugar levels. The treatment is often done with insulin, but it can also be done with medication called insulin-dependent diabetes mellitus (IDDM).", "low-fat and low-sodium diet, getting at least 30 minutes of moderate exercise on most days of the week, quitting smoking, and limiting alcohol intake", new String[] {
+        Illness heartDisease = new Illness("Heart Disease", "Heart disease is a condition in which the heart muscle is damaged. Symptoms include chest pain, shortness of breath, dizziness, and fatigue.", "low-fat and low-sodium diet, getting at least 30 minutes of moderate exercise on most days of the week, quitting smoking, and limiting alcohol intake", new String[] {
             "chest pain",
             "shortness of breath",
             "dizziness",
             "fatigue",
         }, new String[] {
             "Weight. The more fatty tissue you have, the more resistant your cells become to insulin. \nInactivity. The less active you are, the greater your risk. \nFamily history",
+        });
+        // Alzheimer
+        Illness Alzheimer = new Illness("Alzheimer", "Alzheimer's disease is a long-term condition in which the brain's neurons are damaged. Symptoms include memory loss, confusion, and trouble concentrating.", "Treatment consists of cognition enhancing medications\nNo cure exists, but medications and management strategies may temporarily improve symptoms.", new String[] {
+            "memory loss",
+            "confusion",
+            "trouble concentrating",
+        }, new String[] {
+            "Combination of age-related changes in the brain, along with genetic, environmental, and lifestyle factors",
+        });
+        Illness KidneyDisease = new Illness("Kidney Disease", "KKidney disease means your kidneys are damaged and can't filter blood the way they should", "kidney transplant or dialysis", new String[] {
+            "nausea",
+            "vomiting",
+            "muscle cramps",
+            "loss of appetite",
+            "loss of appetite",
+            "swelling",
+            "itchy skin",
+            "trouble sleeping",
+        }, new String[] {
+            "Diabetes and high blood pressure are the most common causes of chronic kidney disease",
+        });
+        Illness HIV_AIDS = new Illness("HIV/AIDS", "HIV (human immunodeficiency virus) is a virus that attacks the body's immune system. If HIV is not treated, it can lead to AIDS (acquired immunodeficiency syndrome).", "HIV/AIDS is a viral infection that causes AIDS. Symptoms include fever, fatigue, and dry cough. Treatment includes medication to prevent HIV/AIDS and to treat symptoms.", new String[] {
+            "fever",
+            "fatigue",
+            "dry cough",
+        }, new String[] {
+            "HIV/AIDS is a viral infection that causes AIDS. Symptoms include fever, fatigue, and dry cough. Treatment includes medication to prevent HIV/AIDS and to treat symptoms.",
         });
 
         ArrayList < Illness > illnesses = new ArrayList < Illness > ();
@@ -55,6 +82,9 @@ public class Diagnose {
         illnesses.add(stroke);
         illnesses.add(diabetes);
         illnesses.add(heartDisease);
+        illnesses.add(Alzheimer);
+        illnesses.add(KidneyDisease);
+        illnesses.add(HIV_AIDS);
 
         for (int i = 0; i < illnesses.size(); i++) {
             if (i == 0) {
@@ -63,31 +93,33 @@ public class Diagnose {
             System.out.print(illnesses.get(i).getName() + ", ");
         }
         System.out.println();
+        System.out.println("Please type each symptom with a comma and a space.\n");
         //ask user for input
         try (Scanner scan = new Scanner(System.in)) {
             System.out.print("Enter your symptoms: ");
             String symptoms = scan.nextLine();
-            String[] symptomsArray = symptoms.split(",");
-            // search through symptoms in illnesses and print out the illnesses that match
-            for (String symptom: symptomsArray) {
-                for (Illness illness: illnesses) {
-                    for (String illnessSymptom: illness.getSymptoms()) {
-                        if (illnessSymptom.equals(symptom)) {
-                            System.out.println("You May Have " + illness.getName());
-                            System.out.println(illness.getDescription());
-                            System.out.println();
-                            System.out.println("Treatments: ");
-                            System.out.println(illness.getTreatment());
-                            System.out.println();
-                            System.out.println("Symptoms of " + illness.getName() + ": ");
-                            for (String symptomName: illness.getSymptoms()) {
-                                System.out.println(symptomName);
-                            }
-                            System.out.println();
-                        }
+            String[] symptomArray = symptoms.split(", ");
+            for (Illness illness: illnesses) {
+                boolean match = true;
+                for (int j = 0; j < symptomArray.length; j++) {
+                    if (!Arrays.asList((illness).getSymptoms()).contains(symptomArray[j])) {
+                        match = false;
+                        break;
                     }
                 }
-
+                if (match) {
+                    System.out.println("You May Have " + illness.getName());
+                    System.out.println(illness.getDescription());
+                    System.out.print("Symptoms: ");
+                    for (String symptom: illness.getSymptoms()) {
+                        System.out.print(symptom);
+                    }
+                    System.out.println("Treatments: " + illness.getTreatment());
+                    System.out.print("Causes: ");
+                    for (String cause: illness.getCauses()) {
+                        System.out.print(cause);
+                    }
+                }
             }
         }
     }

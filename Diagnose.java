@@ -75,6 +75,13 @@ public class Diagnose {
         }, new String[] {
             "HIV/AIDS is a viral infection that causes AIDS. Symptoms include fever, fatigue, and dry cough. Treatment includes medication to prevent HIV/AIDS and to treat symptoms.",
         });
+        Illness death = new Illness("Death", "A person dies", "you can't", new String[] {
+            "stupid",
+            "dumb",
+            "death",
+        }, new String[] {
+            "death",
+        });
 
         ArrayList < Illness > illnesses = new ArrayList < Illness > ();
         illnesses.add(covid);
@@ -85,6 +92,13 @@ public class Diagnose {
         illnesses.add(Alzheimer);
         illnesses.add(KidneyDisease);
         illnesses.add(HIV_AIDS);
+        illnesses.add(death);
+
+        String[] symtopms = {"hello","hello", "hello", "hello","hello","hello", "hello", "hello","hello","hello", "hello", "hello","hello","hello", "hello", "hello", "hello","hello", "hello", "hello", "hello","hello", "hello", "hello","hello","hello", "hello", "hello"};
+        for(symtopms)
+        {
+            System.out.println(symtopms);
+        }
 
         for (int i = 0; i < illnesses.size(); i++) {
             if (i == 0) {
@@ -104,6 +118,7 @@ public class Diagnose {
                 for (int j = 0; j < symptomArray.length; j++) {
                     if (!Arrays.asList((illness).getSymptoms()).contains(symptomArray[j])) {
                         match = false;
+                        System.out.println("Combination does not match");
                         break;
                     }
                 }
@@ -112,8 +127,9 @@ public class Diagnose {
                     System.out.println(illness.getDescription());
                     System.out.print("Symptoms: ");
                     for (String symptom: illness.getSymptoms()) {
-                        System.out.print(symptom);
+                        System.out.print(symptom + ", ");
                     }
+                    System.out.println();
                     System.out.println("Treatments: " + illness.getTreatment());
                     System.out.print("Causes: ");
                     for (String cause: illness.getCauses()) {

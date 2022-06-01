@@ -8,14 +8,12 @@ public class Diagnose {
             "muscle aches",
             "headache",
             "chills",
-            "headache",
             "sore throat",
-            "sadness"
         }, new String[] {
             "Close contact (within 6 feet, or 2 meters) with someone who has COVID-19.",
         });
         Illness lungCancer = new Illness("Lung Cancer", "Two major types of lung cancer are non-small cell lung cancer and small cell lung cancer. Causes of lung cancer include smoking, secondhand smoke, exposure to certain toxins, and family history. Symptoms include cough (often with blood), chest pain, wheezing, and weight loss. These symptoms often don't appear until the cancer is advanced.Treatments vary but may include surgery, chemotherapy, radiation therapy, targeted drug therapy, and immunotherapy.", "Surgery\nchemotherapy\nradiation therapy\ntargeted drug therapy\nimmunotherapy", new String[] {
-            "cough (often with blood)",
+            "cough (with blood)",
             "chest pain",
             "wheezing",
             "weight loss",
@@ -61,7 +59,6 @@ public class Diagnose {
             "vomiting",
             "muscle cramps",
             "loss of appetite",
-            "loss of appetite",
             "swelling",
             "itchy skin",
             "trouble sleeping",
@@ -94,11 +91,7 @@ public class Diagnose {
         illnesses.add(HIV_AIDS);
         illnesses.add(death);
 
-        String[] symtopms = {"hello","hello", "hello", "hello","hello","hello", "hello", "hello","hello","hello", "hello", "hello","hello","hello", "hello", "hello", "hello","hello", "hello", "hello", "hello","hello", "hello", "hello","hello","hello", "hello", "hello"};
-        for(symtopms)
-        {
-            System.out.println(symtopms);
-        }
+        
 
         for (int i = 0; i < illnesses.size(); i++) {
             if (i == 0) {
@@ -106,6 +99,14 @@ public class Diagnose {
             }
             System.out.print(illnesses.get(i).getName() + ", ");
         }
+        System.out.println();
+        System.out.print("Available Symptoms: ");
+        String[] symtopms = {"fever","cough", "muscle aches", "headache","chills","sore throat", "cough (with blood)","chest pain","wheezing", "weight loss", "Sudden confusion","trouble speaking","difficulty understanding speech", "dizziness", "loss of balance", "lack of coordination","high blood sugar", "thirst", "fatigue", "shortness of breath","memory loss", "confusion", "trouble concentrating","nausea","vomiting", "muscle cramps", "loss of appetite", "swelling", "itchy skin", "trouble sleeping", "dry cough"};
+        for(int i = 0; i < symtopms.length; i++) {
+            //add each symptom to the database
+            System.out.print(symtopms[i] + ", ");
+        }
+        System.out.println();
         System.out.println();
         System.out.println("Please type each symptom with a comma and a space.\n");
         //ask user for input
@@ -118,24 +119,27 @@ public class Diagnose {
                 for (int j = 0; j < symptomArray.length; j++) {
                     if (!Arrays.asList((illness).getSymptoms()).contains(symptomArray[j])) {
                         match = false;
-                        System.out.println("Combination does not match");
                         break;
                     }
+
                 }
                 if (match) {
                     System.out.println("You May Have " + illness.getName());
                     System.out.println(illness.getDescription());
+                    System.out.println();
                     System.out.print("Symptoms: ");
                     for (String symptom: illness.getSymptoms()) {
                         System.out.print(symptom + ", ");
                     }
                     System.out.println();
+                    System.out.println();
                     System.out.println("Treatments: " + illness.getTreatment());
+                    System.out.println();
                     System.out.print("Causes: ");
                     for (String cause: illness.getCauses()) {
                         System.out.print(cause);
                     }
-                }
+                } 
             }
         }
     }

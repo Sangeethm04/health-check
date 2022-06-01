@@ -13,6 +13,12 @@ public class Illness {
         this.causes = causes;
     }
 
+    /**
+     * Illness.java
+     * @author Sangeeth Menachery
+     * This class returns the name of the illness
+     * @return name
+     */
     public String getName() {
         return name;
     }

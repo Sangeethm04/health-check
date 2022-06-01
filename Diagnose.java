@@ -72,10 +72,10 @@ public class Diagnose {
         }, new String[] {
             "HIV/AIDS is a viral infection that causes AIDS. Symptoms include fever, fatigue, and dry cough. Treatment includes medication to prevent HIV/AIDS and to treat symptoms.",
         });
-        Illness death = new Illness("Death", "A person dies", "you can't", new String[] {
-            "stupid",
-            "dumb",
-            "death",
+        Illness death = new Illness("Death", "A person dies", "Sorry", new String[] {
+            "no pulse",
+            "no brain activity",
+            "not breathing",
         }, new String[] {
             "death",
         });
@@ -91,7 +91,7 @@ public class Diagnose {
         illnesses.add(HIV_AIDS);
         illnesses.add(death);
 
-        
+
 
         for (int i = 0; i < illnesses.size(); i++) {
             if (i == 0) {
@@ -101,8 +101,40 @@ public class Diagnose {
         }
         System.out.println();
         System.out.print("Available Symptoms: ");
-        String[] symtopms = {"fever","cough", "muscle aches", "headache","chills","sore throat", "cough (with blood)","chest pain","wheezing", "weight loss", "Sudden confusion","trouble speaking","difficulty understanding speech", "dizziness", "loss of balance", "lack of coordination","high blood sugar", "thirst", "fatigue", "shortness of breath","memory loss", "confusion", "trouble concentrating","nausea","vomiting", "muscle cramps", "loss of appetite", "swelling", "itchy skin", "trouble sleeping", "dry cough"};
-        for(int i = 0; i < symtopms.length; i++) {
+        String[] symtopms = {
+            "fever",
+            "cough",
+            "muscle aches",
+            "headache",
+            "chills",
+            "sore throat",
+            "cough (with blood)",
+            "chest pain",
+            "wheezing",
+            "weight loss",
+            "Sudden confusion",
+            "trouble speaking",
+            "difficulty understanding speech",
+            "dizziness",
+            "loss of balance",
+            "lack of coordination",
+            "high blood sugar",
+            "thirst",
+            "fatigue",
+            "shortness of breath",
+            "memory loss",
+            "confusion",
+            "trouble concentrating",
+            "nausea",
+            "vomiting",
+            "muscle cramps",
+            "loss of appetite",
+            "swelling",
+            "itchy skin",
+            "trouble sleeping",
+            "dry cough"
+        };
+        for (int i = 0; i < symtopms.length; i++) {
             //add each symptom to the database
             System.out.print(symtopms[i] + ", ");
         }
@@ -116,6 +148,7 @@ public class Diagnose {
             String[] symptomArray = symptoms.split(", ");
             for (Illness illness: illnesses) {
                 boolean match = true;
+                //check if user symptoms match any illness symptoms
                 for (int j = 0; j < symptomArray.length; j++) {
                     if (!Arrays.asList((illness).getSymptoms()).contains(symptomArray[j])) {
                         match = false;
@@ -139,7 +172,7 @@ public class Diagnose {
                     for (String cause: illness.getCauses()) {
                         System.out.print(cause);
                     }
-                } 
+                }
             }
         }
     }

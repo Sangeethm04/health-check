@@ -1,3 +1,11 @@
+/**
+ * Diagnose.java
+ * @author: Sangeeth Menachery
+ * @since: 5/11/2022
+ * Outputs most relevent illness based on symptoms inputted by the user.
+ * Preconditions: valid symptoms entered by user
+ * Postconditions: ilness with matched symtopms is outputted
+ **/
 import java.util.*;
 
 public class Diagnose {

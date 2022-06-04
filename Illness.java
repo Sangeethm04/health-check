@@ -1,3 +1,4 @@
+
 public class Illness {
     private String name;
     private String description;
@@ -15,8 +16,7 @@ public class Illness {
 
     /**
      * Illness.java
-     * @author Sangeeth Menachery
-     * This class returns the name of the illness
+     * This method returns the name of the illness
      * @return name
      */
     public String getName() {
@@ -37,9 +37,5 @@ public class Illness {
 
     public String[] getCauses() {
         return causes;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

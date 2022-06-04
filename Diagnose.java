@@ -101,41 +101,80 @@ public class Diagnose {
         }
         System.out.println();
         System.out.print("Available Symptoms: ");
-        String[][] symtopms = {{"fever",
-        "cough",
-        "muscle aches",
-        "headache",
-        "chills",
-        "sore throat",
-        "cough (with blood)",
-        "chest pain",
-        "wheezing",
-        "weight loss",
-        "Sudden confusion",
-        "trouble speaking",
-        "difficulty understanding speech",
-        "dizziness",
-        "loss of balance",
-        "lack of coordination",
-        "high blood sugar",
-        "thirst",
-        "fatigue",
-        "shortness of breath",
-        "memory loss",
-        "confusion",
-        "trouble concentrating",
-        "nausea",
-        "vomiting",
-        "muscle cramps",
-        "loss of appetite",
-        "swelling",
-        "itchy skin",
-        "trouble sleeping",
-        "dry cough"} , {}};
-        for (int i = 0; i < symtopms.length; i++) {
-            //add each symptom to the database
-            System.out.print(symtopms[i] + ", ");
+        String[][] symtopms = {
+            {
+                "fever",
+                "cough",
+                "muscle aches",
+                "headache",
+                "chills",
+                "sore throat",
+                "cough (with blood)",
+                "chest pain",
+                "wheezing",
+                "weight loss",
+                "Sudden confusion",
+                "trouble speaking",
+                "difficulty understanding speech",
+                "dizziness",
+                "loss of balance",
+                "lack of coordination",
+                "high blood sugar",
+                "thirst",
+                "fatigue",
+                "shortness of breath",
+                "memory loss",
+                "confusion",
+                "trouble concentrating",
+                "nausea",
+                "vomiting",
+                "muscle cramps",
+                "loss of appetite",
+                "swelling",
+                "itchy skin",
+                "trouble sleeping",
+                "dry cough"
+            },
+            {
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31",
+            }
+        };
+
+        //print each symptom then the corresponding number 
+        for (int i = 0; i < symtopms[0].length; i++) {
+            System.out.print(symtopms[0][i] + ": " + symtopms[1][i] + ", ");
         }
+
         System.out.println();
         System.out.println();
         System.out.println("Please type each symptom with a comma and a space.\n");
@@ -169,7 +208,7 @@ public class Diagnose {
                     System.out.print("Causes: ");
                     for (String cause: illness.getCauses()) {
                         System.out.print(cause);
-                    }
+                    } 
                 }
             }
         }

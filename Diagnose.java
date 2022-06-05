@@ -87,6 +87,14 @@ public class Diagnose {
         }, new String[] {
             "death",
         });
+        VehicleRepairs flatTire = new VehicleRepairs("flat tire", "tire is flat", "fill up with air", new String[] {
+            "feels low to ground",
+            "tires are not working",
+        }, new String[] {
+            "Hard use",
+            "Weather",
+        });
+
 
         ArrayList < Illness > illnesses = new ArrayList < Illness > ();
         illnesses.add(covid);
@@ -99,8 +107,11 @@ public class Diagnose {
         illnesses.add(HIV_AIDS);
         illnesses.add(death);
 
+        //adding ability to diagnose car issues
+        ArrayList < VehicleRepairs > repairs = new ArrayList < VehicleRepairs > ();
+        repairs.add(flatTire);
 
-
+        //saying what illnesses this program can diagnose
         for (int i = 0; i < illnesses.size(); i++) {
             if (i == 0) {
                 System.out.print("We diagnose: ");
@@ -201,6 +212,7 @@ public class Diagnose {
                     }
 
                 }
+                //if any illness have same symptoms, print illness name
                 if (match) {
                     System.out.println("You May Have " + illness.getName());
                     System.out.println(illness.getDescription());
@@ -216,7 +228,7 @@ public class Diagnose {
                     System.out.print("Causes: ");
                     for (String cause: illness.getCauses()) {
                         System.out.print(cause);
-                    } 
+                    }
                 }
             }
         }
